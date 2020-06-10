@@ -1,8 +1,8 @@
 pipeline{ 
   parameters {
     choice(name: 'namespace', choices: ['Dev', 'QA'], description: 'choose env')
-    extendedChoice(name: 'Git/Bucket',type: 'PT_CHECKBOX', value:'https://github.com/pradeep9795/${namespace}_hello.git',description: 'choose git')}
-   agent any
+    extendedChoice(name: 'Git/Bucket',quoteValue: false,saveJSONParameterToFile: false,type: 'PT_CHECKBOX', value:'https://github.com/pradeep9795/${namespace}_hello.git',description: 'choose git')}
+    agent any
 	   stages {
 	        stage ('SCM checkout'){
 				  steps {
